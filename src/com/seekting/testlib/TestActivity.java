@@ -1,10 +1,11 @@
 
 package com.seekting.testlib;
 
-import android.app.Activity;
 import android.os.Bundle;
 
-public class TestActivity extends Activity {
+import com.seekting.activity.BaseActivity;
+
+public class TestActivity extends BaseActivity {
 
     protected String name;
 

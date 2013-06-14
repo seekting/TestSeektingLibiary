@@ -37,8 +37,7 @@ public class MainActivity extends TestActivity implements OnItemClickListener {
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
         TestActivity t = adapter.getItem(position);
-        Intent intent = new Intent(this, t.getClass());
-        startActivity(intent);
+        openActivity(t.getClass());
 
     }
 }

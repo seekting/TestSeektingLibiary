@@ -19,11 +19,11 @@ public class TestPaoPaoDrawable extends TestActivity implements OnClickListener 
         name = "PaoPaoDrawable";
     }
 
-    ImageView paopao, paopao_1;
+    ImageView paopao, paopao_1, paopao_2;
 
     Button add, sub;
 
-    PaoPaoDrawable paoDrawable, paoDrawable1;
+    PaoPaoDrawable paoDrawable, paoDrawable1, paoDrawable2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +32,15 @@ public class TestPaoPaoDrawable extends TestActivity implements OnClickListener 
         paopao = (ImageView)findViewById(R.id.paopao);
 
         paopao_1 = (ImageView)findViewById(R.id.paopao_1);
+        paopao_2 = (ImageView)findViewById(R.id.paopao_2);
         BitmapDrawable bitmapDrawable = (BitmapDrawable)getResources().getDrawable(
                 R.drawable.ic_launcher);
         paoDrawable = new PaoPaoDrawable(bitmapDrawable, 20, Color.GRAY, Color.CYAN, 9);
 
         Drawable selector = getResources().getDrawable(R.drawable.btn_dialog_selector);
         paoDrawable1 = new PaoPaoDrawable(selector, 20, Color.WHITE, Color.GREEN, 20);
+        Drawable newbg = getResources().getDrawable(R.drawable.new_msg_bg);
+        paoDrawable2 = new PaoPaoDrawable(selector, 20, Color.WHITE, newbg, 20);
         add = (Button)findViewById(R.id.add);
         sub = (Button)findViewById(R.id.sub);
         add.setOnClickListener(this);
@@ -52,6 +55,7 @@ public class TestPaoPaoDrawable extends TestActivity implements OnClickListener 
 
             }
         });
+        paopao_2.setImageDrawable(paoDrawable2);
     }
 
     @Override
@@ -68,11 +72,13 @@ public class TestPaoPaoDrawable extends TestActivity implements OnClickListener 
 
             paoDrawable.num++;
             paoDrawable1.num++;
+            paoDrawable2.num++;
 
         } else if (v == sub) {
 
             paoDrawable.num--;
             paoDrawable1.num--;
+            paoDrawable2.num--;
         }
         paoDrawable.invalidateSelf();
     }
