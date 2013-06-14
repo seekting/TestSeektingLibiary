@@ -1,25 +1,44 @@
 
 package com.seekting.testlib;
 
-import com.example.testseektinglibiary.R;
+import java.util.List;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.app.Activity;
-import android.view.Menu;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
-public class MainActivity extends Activity {
+public class MainActivity extends TestActivity implements OnItemClickListener {
+
+    List<TestActivity> list;
+
+    ListView listView;
+
+    ArrayAdapter<TestActivity> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.main);
+        listView = (ListView)findViewById(R.id.list);
+
+        adapter = new ArrayAdapter<TestActivity>(this, android.R.layout.simple_list_item_1);
+
+        TestPaoPaoDrawable testPaoPaoDrawable = new TestPaoPaoDrawable();
+        adapter.add(testPaoPaoDrawable);
+        listView.setAdapter(adapter);
+        listView.setOnItemClickListener(this);
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.activity_main, menu);
-        return true;
-    }
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+        TestActivity t = adapter.getItem(position);
+        Intent intent = new Intent(this, t.getClass());
+        startActivity(intent);
+
+    }
 }
