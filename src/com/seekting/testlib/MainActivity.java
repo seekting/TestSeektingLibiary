@@ -1,5 +1,7 @@
 
-package com.example.testseektinglibiary;
+package com.seekting.testlib;
+
+import com.example.testseektinglibiary.R;
 
 import android.os.Bundle;
 import android.app.Activity;
