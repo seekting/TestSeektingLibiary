@@ -17,6 +17,7 @@ public class MainActivity extends TestActivity implements OnItemClickListener {
 
     ListView listView;
 
+    
     ArrayAdapter<TestActivity> adapter;
     
 
