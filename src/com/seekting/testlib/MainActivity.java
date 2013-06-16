@@ -28,7 +28,9 @@ public class MainActivity extends TestActivity implements OnItemClickListener {
         adapter = new ArrayAdapter<TestActivity>(this, android.R.layout.simple_list_item_1);
 
         TestPaoPaoDrawable testPaoPaoDrawable = new TestPaoPaoDrawable();
+        TestRecordActivity testRecordActivity = new TestRecordActivity();
         adapter.add(testPaoPaoDrawable);
+        adapter.add(testRecordActivity);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(this);
     }
