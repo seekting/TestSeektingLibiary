@@ -7,6 +7,7 @@ import com.seekting.activity.BaseActivity;
 
 public class TestActivity extends BaseActivity {
 
+    
     protected String name;
 
     @Override
